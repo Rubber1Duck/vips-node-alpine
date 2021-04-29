@@ -1,5 +1,5 @@
 # vips-alpine
-Alpine Linux based VIPS Docker image
+Alpine Linux Node 12 based VIPS Docker image
 
 Contains most VIPS features except imagemagick/graphicsmagick, openslide, matio and cfitsio loader.
 
