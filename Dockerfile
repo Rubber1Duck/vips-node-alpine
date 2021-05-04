@@ -1,5 +1,9 @@
 FROM node:12-alpine3.12
 
+# common build flags
+ENV CFLAGS=-O3
+ENV CXXFLAGS=-O3
+
 ARG VIPS_VERSION=8.10.6
 
 RUN set -x -o pipefail \
