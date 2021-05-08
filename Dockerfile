@@ -14,7 +14,7 @@ RUN set -x -o pipefail \
      zlib libxml2 glib gobject-introspection \
      libjpeg-turbo libexif lcms2 fftw giflib libpng \
      libwebp orc tiff poppler-glib librsvg libgsf openexr \
-     libheif libimagequant pango \
+     libheif libimagequant pango tzdata\
     && apk add --virtual vips-dependencies build-base \
      zlib-dev libxml2-dev glib-dev gobject-introspection-dev \
      libjpeg-turbo-dev libexif-dev lcms2-dev fftw-dev giflib-dev libpng-dev \
@@ -30,4 +30,5 @@ RUN set -x -o pipefail \
     && cd $OLDPWD \
     && rm -rf /tmp/vips-${VIPS_VERSION} \
     && apk del --purge vips-dependencies \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
