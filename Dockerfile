@@ -4,7 +4,7 @@ FROM node:12-alpine3.12
 ENV CFLAGS=-O3
 ENV CXXFLAGS=-O3
 
-ARG VIPS_VERSION=8.11.0
+ARG VIPS_VERSION=8.11.2
 
 RUN set -x -o pipefail \
     && wget -O- https://github.com/libvips/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
