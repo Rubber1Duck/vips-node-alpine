@@ -15,7 +15,7 @@ RUN set -x -o pipefail \
       libexif lcms2 fftw giflib libpng libwebp orc tiff poppler-glib \
       librsvg libgsf openexr libheif libimagequant pango \
     && apk add \
-      --no-cache --virtual .vips-deps build-base binutils zlib-dev \
+      --no-cache --virtual vips-dependencies build-base binutils zlib-dev \
       libxml2-dev glib-dev gobject-introspection-dev libjpeg-turbo-dev \
       libexif-dev lcms2-dev fftw-dev giflib-dev libpng-dev libwebp-dev \
       orc-dev tiff-dev poppler-dev librsvg-dev libgsf-dev openexr-dev \
@@ -30,4 +30,3 @@ RUN set -x -o pipefail \
     && rm -rf /tmp/vips-${VIPS_VERSION} \
     && apk del --purge vips-dependencies \
     && rm -rf /var/cache/apk/*
-    
