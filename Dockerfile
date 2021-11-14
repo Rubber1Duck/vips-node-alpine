@@ -11,15 +11,16 @@ RUN set -x -o pipefail \
   && apk update \
   && apk upgrade \
   && apk add \
-    --no-cache zlib libxml2 glib gobject-introspection libjpeg-turbo \
+    zlib libxml2 glib gobject-introspection libjpeg-turbo \
     libexif lcms2 fftw giflib libpng libwebp orc tiff poppler-glib \
-    librsvg libgsf openexr libheif libimagequant pango \
-  && apk add --no-cache msttcorefonts-installer fontconfig \
-  && update-ms-fonts \
-  && fc-cache -f \ 
+    librsvg libgsf openexr libheif libimagequant pango fontconfig \
+  && apk add --virtual .ms-fonts msttcorefonts-installer  \
+  && update-ms-fonts 2>/dev/null \
+  && fc-cache -f \
+  && apk del .ms-fonts\
   && npm -g install npm@6.14.15 \
   && apk add \
-    --no-cache --virtual vips-dependencies build-base binutils zlib-dev \
+    --virtual .vips-dependencies build-base binutils zlib-dev \
     libxml2-dev glib-dev gobject-introspection-dev libjpeg-turbo-dev \
     libexif-dev lcms2-dev fftw-dev giflib-dev libpng-dev libwebp-dev \
     orc-dev tiff-dev poppler-dev librsvg-dev libgsf-dev openexr-dev \
@@ -32,5 +33,5 @@ RUN set -x -o pipefail \
   && make -s install-strip \
   && cd $OLDPWD \
   && rm -rf /tmp/vips-${VIPS_VERSION} \
-  && apk del --purge vips-dependencies \
+  && apk del --purge .vips-dependencies \
   && rm -rf /var/cache/apk/*
