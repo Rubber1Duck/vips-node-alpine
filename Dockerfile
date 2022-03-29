@@ -18,7 +18,6 @@ RUN set -x -o pipefail \
   && update-ms-fonts 2>/dev/null \
   && fc-cache -f \
   && apk del .ms-fonts\
-  && npm -g install npm@6.14.15 \
   && apk add \
     --virtual .vips-dependencies build-base binutils zlib-dev \
     libxml2-dev glib-dev gobject-introspection-dev libjpeg-turbo-dev \
