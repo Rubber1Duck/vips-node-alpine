@@ -1,6 +1,6 @@
 # vips-node-alpine
 
-Alpine Linux 3.12 Node 16 based VIPS Docker image
+Alpine Linux 3.14 Node 16 based VIPS Docker image
 
 Contains most VIPS features except imagemagick/graphicsmagick, openslide, matio and cfitsio loader.
 
