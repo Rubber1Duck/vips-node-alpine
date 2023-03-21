@@ -1,10 +1,10 @@
-FROM node:16-alpine3.14
+FROM node:16-alpine3.16
 
 # common build flags
 ENV CFLAGS=-O3
 ENV CXXFLAGS=-O3
 
-ARG VIPS_VERSION=8.11.4
+ARG VIPS_VERSION=8.12.2
 
 RUN set -x -o pipefail \
   && wget -O- https://github.com/libvips/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
